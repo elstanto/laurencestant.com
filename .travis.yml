@@ -7,3 +7,12 @@ before_install:
 - npm install
 install:
 - hexo generate
+env:
+  global:
+    secure: MLm54DRXIyp+qK22Fb0DCJEex5ZzXe3efbMtpnm9HyBv6k02VqCYfs9J6qIfyMwqx6qw7+7vkri8LoFdS2QLPtkN0ugvhRSy/iYLYA9PsbkuoDsbfuD/Qt4BMBBQKRfOg4C+uBysiG0JTWb+HMYgHqpt+plUgKUaxr5pq0CeZ1IpiSRylrbsmCnmKroBTb7u082+PbMgOmT6veIrQTz2TTaPf4uk17m/7tcfjhog6S8SWSauA//jhtkF12hAhSdqT8VJtZlS852a8XGHNcVq/h6EkbSmAA22zyptAwbP2SHMYePfQS/psCiGkeH42zorFeALcImbvrF2mVVJoe+CqCEjWgifd87llGkODuKZXWyRfvNyCa572m8W527B7n6wd+ExvH3X+0NJyIpatRmo41DZpH85LG1KsWWcOAarWjRm9OLLL/9ytoyUu2WXtscMvPDmqppblk3j6Mi3IZ3S4GwWxs8V+CdSMMv1SbTCs+6sB21IWtkCAJv5ZAx77IYiTUtdOQfNCz5+XP4pw+Y6v/sHisITM/uy24OlgnYRrZ8JnupQYa0XHLPXwiU0jKxxFRtBkyjUJEI2e6w6GYkS0xqgVeDwisajSnMc5QtGac+AInp/0YUqIxq5LJPxxS8g6s0S827a84e/ZUmgFiZXOGwmJODg0i2xTPyzeUEZa9E=
+before_script:
+- git config --global user.name 'Laurence Stant via Travis CI'
+- git config --global user.email 'laurence@sandylabs.com'
+- sed -i'' "s~git@github.com:helgrind/laurencestant.com.git~https://${GH_TOKEN}:x-oauth-basic@github.com/helgrind/laurencestant.com.git~" _config.yml
+script:
+- hexo deploy --silent
